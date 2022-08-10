@@ -32,10 +32,6 @@ public class Navigation {
 	static int numAle = 51;
 	static int numAle2 = 50;
 	static int quantChar = 1;
-	static int contaLoop = 0;
-	static int contaLoop1 = 0;
-	static int contaLoop2 = 0;
-	static int contaLoop4 = 0;
 	static int contaRound = 1;
 	static int atributoEscoInt = 0;
 	static int creditos = 0;
@@ -44,8 +40,8 @@ public class Navigation {
 	static int quantInimigos = 0;
 	static String escolher = "jax";
 	static String firstChoose = "escolher";
-	static String destEsco = "dest342";
-	static String escoModo = "sfjtml";
+	static String destEsco = "master";
+	static String escoModo = "arcade";
 	static String atributoEsco = "power";
 //========================================================================================================
 	static void apresentacao() throws InterruptedException {			//TELA INICIAL DO GAME
@@ -62,16 +58,24 @@ public class Navigation {
 	}
 //========================================================================================================
 	static int credit() {
+		if (creditos == 0) {
 		do {
 			System.out.println("Insira créditos: ");
 			creditos = entrada.nextInt();
+			
 			if (creditos <= 0) {
 				System.out.println("Insira pelo menos 1 crédito");
 			} else if (creditos > 20) {
 				System.out.println("A quantidade maxima de créditos é 20");
 			}
-		} while (creditos == 0 || creditos > 20);
-		System.out.println("Voce tem " + creditos + " creditos!");
+		} while (creditos <= 0 || creditos > 20);
+		}
+		if (creditos == 1) {
+			System.out.println("Voce tem " + creditos + " credito!");
+		} else {
+			System.out.println("Voce tem " + creditos + " creditos!");
+		}
+		
 		verificaCreditos = creditos;
 		return creditos;
 	}
@@ -307,10 +311,9 @@ public class Navigation {
 //========================================================================================================
 	static void escoModo() {
 		do {
-			if (contaLoop4 != 0) {
+			if (!escoModo.equals("arcade") && !escoModo.equals("classica") && !escoModo.equals("sobrevivencia")) {
 				System.out.println("Erro, tente novamente");
 			}
-			contaLoop4 += 1;
 			System.out.println("Arcade");
 			System.out.println("Classica");
 			System.out.println("Sobrevivencia");
@@ -321,10 +324,9 @@ public class Navigation {
 //========================================================================================================
 	static String escoTorre() {
 		do {
-			if (contaLoop2 != 0) {
+			if (!destEsco.equals("novato") && !destEsco.equals("guerreiro") && !destEsco.equals("master")) {
 				System.out.println("Erro, tente novamente");
 			}
-			contaLoop2 += 1;
 		System.out.println("Novato");
 		System.out.println("Guerreiro");
 		System.out.println("Master");
@@ -445,9 +447,9 @@ public class Navigation {
 					!escolher.equals(chrs.chars[14]) && !escolher.equals(chrs.chars[0]) && 
 					!escolher.equals(chrs.chars[15]) && !escolher.equals(chrs.chars[16]) &&
 					!escolher.equals(chrs.chars[17]) &&
-					 escolher.equals(userChar1) && escolher.equals(userChar2) && escolher.equals(userChar3) 
-					 && escolher.equals(userChar4) && escolher.equals(userChar5) && escolher.equals(userChar6) 
-					 && escolher.equals(userChar7) && escolher.equals(userChar8) && escolher.equals(userChar9));
+					 !escolher.equals(userChar1) && !escolher.equals(userChar2) && !escolher.equals(userChar3) 
+					 && !escolher.equals(userChar4) && !escolher.equals(userChar5) && !escolher.equals(userChar6) 
+					 && !escolher.equals(userChar7) && !escolher.equals(userChar8) && !escolher.equals(userChar9));
 			return escolher;
 	}
 //========================================================================================================
