@@ -5,13 +5,25 @@ import java.util.Scanner;
 
 public class Navigation {
 //======================================================================================================
-		static String[] machineCharV = {"vazio1", "vazio2", "vazio3", "vazio4", "vazio5", "vazio6", "vazio7", "vazio8", "vazio9"};
-		static int[][] machineCharsM = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1},{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-		static int[] machineNumberV = {21, 22, 23, 24, 25, 26, 27, 28, 29};
-//=======================================================================================================
-		static String[] userCharV = {"vazio1", "vazio2", "vazio3", "vazio4", "vazio5", "vazio6", "vazio7", "vazio8", "vazio9"};
-		static int[][] userCharsM = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1}, {1, 1, 1},{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
-		static int[] userNumberV = {31, 32, 33, 34, 35, 36, 37, 38, 39};
+		static String machineChar1 = "vazio1"; static String machineChar2 = "vazio2"; static String machineChar3 = "vazio3";
+		static String machineChar4 = "vazio4"; static String machineChar5 = "vazio5"; static String machineChar6 = "vazio6";
+		static String machineChar7 = "vazio7"; static String machineChar8 = "vazio8"; static String machineChar9 = "vazio9";
+		static int machineChars1[] = {1, 1, 1}; static int machineChars2[] = {1, 1, 1}; static int machineChars3[] = {1, 1, 1};
+		static int machineChars4[] = {1, 1, 1}; static int machineChars5[] = {1, 1, 1}; static int machineChars6[] = {1, 1, 1};
+		static int machineChars7[] = {1, 1, 1}; static int machineChars8[] = {1, 1, 1}; static int machineChars9[] = {1, 1, 1};
+		static int machineNumber1 = 31; static int machineNumber2 = 32; static int machineNumber3 = 33;
+		static int machineNumber4 = 34; static int machineNumber5 = 35; static int machineNumber6 = 36;
+		static int machineNumber7 = 37; static int machineNumber8 = 38; static int machineNumber9 = 39;
+//=======================================================================================================		
+		static String userChar1 = "vazio1"; static String userChar2 = "vazio2"; static String userChar3 = "vazio3";
+		static String userChar4 = "vazio4"; static String userChar5 = "vazio5"; static String userChar6 = "vazio6";
+		static String userChar7 = "vazio7"; static String userChar8 = "vazio8"; static String userChar9 = "vazio9";
+		static int userChars1[] = {1, 1, 1}; static int userChars2[] = {1, 1, 1}; static int userChars3[] = {1, 1, 1}; 
+		static int userChars4[] = {1, 1, 1}; static int userChars5[] = {1, 1, 1}; static int userChars6[] = {1, 1, 1}; 
+		static int userChars7[] = {1, 1, 1}; static int userChars8[] = {1, 1, 1}; static int userChars9[] = {1, 1, 1};
+		static int userNumber1 = 41; static int userNumber2 = 42; static int userNumber3 = 43; 
+		static int userNumber4 = 44; static int userNumber5 = 45; static int userNumber6 = 46; 
+		static int userNumber7 = 47; static int userNumber8 = 48; static int userNumber9 = 49; 
 //========================================================================================================
 	static Scanner entrada = new Scanner(System.in);
 	static Random n = new Random();
@@ -25,36 +37,74 @@ public class Navigation {
 	static int creditos = 0;
 	static int verificaCreditos = 0;
 	static int win1 = 0;
+	static int winS = 0;
 	static int quantInimigos = 0;
 	static String escolher = "jax";
 	static String firstChoose = "escolher";
 	static String destEsco = "master";
 	static String escoModo = "arcade";
 	static String atributoEsco = "power";
+	
+
+		
+	    public static final String ANSI_RESET = "\u001B[0m";
+	    public static final String ANSI_YELLOW = "\u001B[33m";
+	    public static final String ANSI_RED = "\u001B[41m";
+	    public static final String ANSI_BLUE = "\u001B[44m";
+	    public static final String ANSI_GREEN = "\u001B[42m";
+	    public static final String ANSI_ROXA = "\u001B[45m";
+	
 //========================================================================================================
 	static void apresentacao() throws InterruptedException {			//TELA INICIAL DO GAME
-		System.out.println("Mortal Kombat Battle Game");
+		System.out.println("  __  __    ____    _____    _______              _          _  __   ____    __  __   ____               _______ ");
+		System.out.println(" |  \\/  |  / __ \\  |  __ \\  |__   __|     /\\     | |        | |/ /  / __ \\  |  \\/  | |  _ \\      /\\     |__   __|");
+		System.out.println(" | \\  / | | |  | | | |__) |    | |       /  \\    | |        | ' /  | |  | | | \\  / | | |_) |    /  \\       | |   ");
+		System.out.println(" | |\\/| | | |  | | |  _  /     | |      / /\\ \\   | |        |  <   | |  | | | |\\/| | |  _ <    / /\\ \\      | |   ");
+		System.out.println(" | |  | | | |__| | | | \\ \\     | |     / ____ \\  | |____    | . \\  | |__| | | |  | | | |_) |  / ____ \\     | |   ");
+		System.out.println(" |_|  |_|  \\____/  |_|  \\_\\    |_|    /_/    \\_\\ |______|   |_|\\_\\  \\____/  |_|  |_| |____/  /_/    \\_\\    |_|   ");
+		System.out.println("");
 		//Thread.sleep(1500);
-		System.out.println("Java Editon");
+		System.out.println("     _                         ___      _   _   _     _              ");
+		System.out.println("  _ | |  __ _  __ __  __ _    | __|  __| | (_) | |_  (_)  ___   _ _  ");
+		System.out.println(" | || | / _` | \\ V / / _` |   | _|  / _` | | | |  _| | | / _ \\ | ' \\ ");
+		System.out.println("  \\__/  \\__,_|  \\_/  \\__,_|   |___| \\__,_| |_|  \\__| |_| \\___/ |_||_|");
+		System.out.println("");
 		//Thread.sleep(2000);
 		credit();
-		System.out.println("Pressione qualquer botão");
+		System.out.print("Presione qualquer botao: ");
 		entrada.next();
+		System.out.println();
 		//Thread.sleep(500);
 		System.out.println("Carregando...");
+		Thread.sleep(250);
+		System.out.println("█▒▒▒▒▒▒▒▒▒");
+		System.out.println("10%");
+		Thread.sleep(550);
+		System.out.println("███▒▒▒▒▒▒▒");
+		System.out.println("30%");
+		Thread.sleep(400);
+		System.out.println("█████▒▒▒▒▒");
+		System.out.println("50%");
+		Thread.sleep(500);
+		System.out.println("███████▒▒▒");
+		System.out.println("70%");
+		Thread.sleep(1000);
+		System.out.println("██████████");
+		System.out.println("100%");
+		System.out.println("");
 		//Thread.sleep(3000);
 	}
 //========================================================================================================
 	static int credit() {
 		if (creditos == 0) {
 		do {
-			System.out.println("Insira créditos: ");
+			System.out.print("Insira créditos: ");
 			creditos = entrada.nextInt();
 			
 			if (creditos <= 0) {
-				System.out.println("Insira pelo menos 1 crédito");
+				System.err.println("Insira pelo menos 1 crédito");
 			} else if (creditos > 20) {
-				System.out.println("A quantidade maxima de créditos é 20");
+				System.err.println("A quantidade maxima de créditos é 20");
 			}
 		} while (creditos <= 0 || creditos > 20);
 		}
@@ -70,189 +120,153 @@ public class Navigation {
 //========================================================================================================	
 	static int machine1(int machineNumber) {
 //========================================================================================================
-		if (machineNumber == machineNumberV[0]) {
+		if (machineNumber == machineNumber1) {
 		do {
 			numAle2 = n.nextInt(17);
 			machineNumber = numAle2;
-		} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-				machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-				machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8]);
+		} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+				machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+				machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9);
 //===============================================================================================================================		
-		} else if (machineNumber == machineNumberV[1]) {
+		} else if (machineNumber == machineNumber2) {
 			do {
 				numAle2 = n.nextInt(17);
 				machineNumber = numAle2;
-			} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-					machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-					machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-					machineNumber == machineNumberV[0]);
+			} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+					machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+					machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+					machineNumber == machineNumber1);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[2]) {
+			} else if (machineNumber == machineNumber3) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[3]) {
+			} else if (machineNumber == machineNumber4) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[4]) {
+			} else if (machineNumber == machineNumber5) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2] || 
-						machineNumber == machineNumberV[3]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3 || 
+						machineNumber == machineNumber4);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[5]) {
+			} else if (machineNumber == machineNumber6) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2] || 
-						machineNumber == machineNumberV[3] || machineNumber == machineNumberV[4]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3 || 
+						machineNumber == machineNumber4 || machineNumber == machineNumber5);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[6]) {
+			} else if (machineNumber == machineNumber7) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2] || 
-						machineNumber == machineNumberV[3] || machineNumber == machineNumberV[4] || machineNumber == machineNumberV[5]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3 || 
+						machineNumber == machineNumber4 || machineNumber == machineNumber5 || machineNumber == machineNumber6);
 //===============================================================================================================================
-			} else if (machineNumber == machineNumberV[7]) {
+			} else if (machineNumber == machineNumber8) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2] || 
-						machineNumber == machineNumberV[3] || machineNumber == machineNumberV[4] || machineNumber == machineNumberV[5] || 
-						machineNumber == machineNumberV[6]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3 || 
+						machineNumber == machineNumber4 || machineNumber == machineNumber5 || machineNumber == machineNumber6 || 
+						machineNumber == machineNumber7);
 //===============================================================================================================================				
-			} else if (machineNumber == machineNumberV[8]) {
+			} else if (machineNumber == machineNumber9) {
 				do {
 					numAle2 = n.nextInt(17);
 					machineNumber = numAle2;
-				} while (machineNumber == userNumberV[0] || machineNumber == userNumberV[1] || machineNumber == userNumberV[2] || 
-						machineNumber == userNumberV[3] || machineNumber == userNumberV[4] || machineNumber == userNumberV[5] || 
-						machineNumber == userNumberV[6] || machineNumber == userNumberV[7] || machineNumber == userNumberV[8] ||
-						machineNumber == machineNumberV[0] || machineNumber == machineNumberV[1] || machineNumber == machineNumberV[2] || 
-						machineNumber == machineNumberV[3] || machineNumber == machineNumberV[4] || machineNumber == machineNumberV[5] || 
-						machineNumber == machineNumberV[6] || machineNumber == machineNumberV[7]);
+				} while (machineNumber == userNumber1 || machineNumber == userNumber2 || machineNumber == userNumber3 || 
+						machineNumber == userNumber4 || machineNumber == userNumber5 || machineNumber == userNumber6 || 
+						machineNumber == userNumber7 || machineNumber == userNumber8 || machineNumber == userNumber9 ||
+						machineNumber == machineNumber1 || machineNumber == machineNumber2 || machineNumber == machineNumber3 || 
+						machineNumber == machineNumber4 || machineNumber == machineNumber5 || machineNumber == machineNumber6 || 
+						machineNumber == machineNumber7 || machineNumber == machineNumber8);
 			}
 		return machineNumber;
 //===============================================================================================================================
 		
 }
 //========================================================================================================
-	static int[][] machine2(int machineNumber, int machineChars[][]) {
+	static int[] machine2(int machineNumber, int machineChars[]) {
 		
 		if (machineNumber == 0) {
-			machineChars[0][0] = chrs.motaro[0];
-			machineChars[0][1] = chrs.motaro[1];
-			machineChars[0][2] = chrs.motaro[2];
+			machineChars = chrs.motaro;
 			
 		} else if (machineNumber == 1) {
-			machineChars[1][0] = chrs.sonya[0];
-			machineChars[1][1] = chrs.sonya[1];
-			machineChars[1][2] = chrs.sonya[2];
+			machineChars = chrs.sonya;
 			
 		}  else if (machineNumber == 2) {
-			machineChars[2][0] = chrs.nightwolf[0];
-			machineChars[2][1] = chrs.nightwolf[1];
-			machineChars[2][2] = chrs.nightwolf[2];
+			machineChars = chrs.nightwolf;
 			
 		}  else if (machineNumber == 3) {
-			machineChars[3][0] = chrs.sindel[0];
-			machineChars[3][1] = chrs.sindel[1];
-			machineChars[3][2] = chrs.sindel[2];
+			machineChars = chrs.sindel;
 			
 		}  else if (machineNumber == 4) {
-			machineChars[4][0] = chrs.stryker[0];
-			machineChars[4][1] = chrs.stryker[1];
-			machineChars[4][2] = chrs.stryker[2];
+			machineChars = chrs.stryker;
 			
 		}  else if (machineNumber == 5) {
-			machineChars[5][0] = chrs.sheeva[0];
-			machineChars[5][1] = chrs.sheeva[1];
-			machineChars[5][2] = chrs.sheeva[2];
+			machineChars = chrs.sheeva;
 			
 		}  else if (machineNumber == 6) {
-			machineChars[6][0] = chrs.noob[0];
-			machineChars[6][1] = chrs.noob[1];
-			machineChars[6][2] = chrs.noob[2];
+			machineChars = chrs.noob;
 			
 		}  else if (machineNumber == 7) {
-			machineChars[7][0] = chrs.subzero[0];
-			machineChars[7][1] = chrs.subzero[1];
-			machineChars[7][2] = chrs.subzero[2];
+			machineChars = chrs.subzero;
 			
 		}  else if (machineNumber == 8) {
-			machineChars[8][0] = chrs.shangtsung[0];
-			machineChars[8][1] = chrs.shangtsung[1];
-			machineChars[8][2] = chrs.shangtsung[2];
+			machineChars = chrs.shangtsung;
 			
 		}  else if (machineNumber == 9) {
-			machineChars[9][0] = chrs.shaokahn[0];
-			machineChars[9][1] = chrs.shaokahn[1];
-			machineChars[9][2] = chrs.shaokahn[2];
+			machineChars = chrs.shaokahn;
 			
 		}  else if (machineNumber == 10) {
-			machineChars[10][0] = chrs.sektor[0];
-			machineChars[10][1] = chrs.sektor[1];
-			machineChars[10][2] = chrs.sektor[2];
+			machineChars = chrs.sektor;
 			
 		}  else if (machineNumber == 11) {
-			machineChars[11][0] = chrs.cyrax[0];
-			machineChars[11][1] = chrs.cyrax[1];
-			machineChars[11][2] = chrs.cyrax[2];
+			machineChars = chrs.cyrax;
 			
 		}  else if (machineNumber == 12) {
-			machineChars[12][0] = chrs.smoke[0];
-			machineChars[12][1] = chrs.smoke[1];
-			machineChars[12][2] = chrs.smoke[2];
+			machineChars = chrs.smoke;
 			
 		}  else if (machineNumber == 13) {
-			machineChars[13][0] = chrs.kano[0];
-			machineChars[13][1] = chrs.kano[1];
-			machineChars[13][2] = chrs.kano[2];
+			machineChars = chrs.kano;
 			
 		}  else if (machineNumber == 14) {
-			machineChars[14][0] = chrs.liukang[0];
-			machineChars[14][1] = chrs.liukang[1];
-			machineChars[14][2] = chrs.liukang[2];
+			machineChars = chrs.liukang;
 			
 		}  else if (machineNumber == 15) {
-			machineChars[15][0] = chrs.kunglao[0];
-			machineChars[15][1] = chrs.kunglao[1];
-			machineChars[15][2] = chrs.kunglao[2];
+			machineChars = chrs.kunglao;
 		
 		}  else if (machineNumber == 16) {
-			machineChars[16][0] = chrs.jax[0];
-			machineChars[16][1] = chrs.jax[1];
-			machineChars[16][2] = chrs.jax[2];
+			machineChars = chrs.jax;
 			
 		}  else if (machineNumber == 17) {
-			machineChars[17][0] = chrs.kabal[0];
-			machineChars[17][1] = chrs.kabal[1];
-			machineChars[17][2] = chrs.kabal[2];
+			machineChars = chrs.kabal;
 		
 		}
 		return machineChars;
@@ -321,29 +335,28 @@ public class Navigation {
 	}
 //========================================================================================================
 	static void impriChars() throws InterruptedException {			//IMPRESSAO DO NOME DOS PERSONAGENS
-		Thread.sleep(1000);
-		System.out.println(chrs.chars[0] + " | " + chrs.chars[1] + " | " + chrs.chars[2] + 
-				" | " + chrs.chars[3] + " | " + chrs.chars[4] + " | " + chrs.chars[5]);
-		Thread.sleep(500);
-		System.out.println(chrs.chars[6] + " | " + chrs.chars[7] + " | " + chrs.chars[8] + 
-				" | " + chrs.chars[9] + " | " + chrs.chars[10] + " | " + chrs.chars[11]);
-		Thread.sleep(500);
-		System.out.println(chrs.chars[12] + " | " + chrs.chars[13] + " | " + chrs.chars[14] + 
-				" | " + chrs.chars[15] + " | " + chrs.chars[16] + " | " + chrs.chars[17]);
-		Thread.sleep(2000);
+		System.out.println("-------------------------------------------------------------");
+		System.out.println("sektor | jax    | stryker  | shaokahn  | stryker    | sheeva");
+		System.out.println("smoke  | noob   | kunglao  | sheeva    | nightwolf  | cyrax");
+		System.out.println("cyrax  | kano   | liukang  | motaro    | subzero    | kabal");
+		System.out.println("-------------------------------------------------------------");
+		System.out.println();
 	}
 //========================================================================================================
 	static void escoModo() {
 		do {
 			if (!escoModo.equals("arcade") && !escoModo.equals("classica") && !escoModo.equals("sobrevivencia")) {
-				System.out.println("Erro, tente novamente");
+				System.out.println();
+				System.err.println("Erro, tente novamente");
+				System.out.println();
 			}
 			System.out.println("Arcade");
 			System.out.println("Classica");
 			System.out.println("Sobrevivencia");
-			System.out.println("Escolha o modo de jogo:");
+			System.out.print("Escolha o modo de jogo: ");
 			escoModo = entrada.next();
 		} while (!escoModo.equals("arcade") && !escoModo.equals("classica") && !escoModo.equals("sobrevivencia"));
+	System.out.println();
 	}
 //========================================================================================================
 	static String escoTorre() {
@@ -354,7 +367,7 @@ public class Navigation {
 		System.out.println("Novato");
 		System.out.println("Guerreiro");
 		System.out.println("Master");
-		System.out.println("Escolha seu destino");
+		System.out.print("Escolha seu destino: ");
 		destEsco = entrada.next();
 		} while (!destEsco.equals("novato") && !destEsco.equals("guerreiro") && !destEsco.equals("master"));
 		return destEsco;
@@ -384,6 +397,8 @@ public class Navigation {
 				System.out.println("A quantidade maxima de personagens é 9");
 			}	
 		}
+		
+		System.out.println("Batalha Classica");
 		System.out.println("Deseja quantos personagens na batalha?");
 		quantChar = entrada.nextInt();
 		} while (quantChar <= 0 || quantChar > 9);
@@ -391,45 +406,46 @@ public class Navigation {
 }
 	static void exibeTime(int quantEsco) {
 		if (quantEsco == 1) {
-			System.out.println("Seu personagem é: " + userCharV[0]);
+			System.out.println("Seu personagem é: " + userChar1);
 		} else if (quantEsco == 2) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2);
 		} else if (quantEsco == 3) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3);
 		} else if (quantEsco == 4) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+			 + ", " + userChar4);
 		} else if (quantEsco == 5) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3] + ", " + userCharV[4]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+					 + ", " + userChar4 + ", " + userChar5);
 		} else if (quantEsco == 6) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3] + ", " + userCharV[4] + ", " + userCharV[5]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+					 + ", " + userChar4 + ", " + userChar5 + ", " + userChar6);
 		} else if (quantEsco == 7) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3] + ", " + userCharV[4] + ", " + userCharV[5]
-					 + ", " + userCharV[6]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+					 + ", " + userChar4 + ", " + userChar5 + ", " + userChar6
+					 + ", " + userChar7);
 		} else if (quantEsco == 8) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3] + ", " + userCharV[4] + ", " + userCharV[5]
-					 + ", " + userCharV[6] + ", " + userCharV[7]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+					 + ", " + userChar4 + ", " + userChar5 + ", " + userChar6
+					 + ", " + userChar7 + ", " + userChar8);
 		} else if (quantEsco == 9) {
-			System.out.println("Seu time é: " + userCharV[0] + ", " + userCharV[1] + ", " + userCharV[2]
-					 + ", " + userCharV[3] + ", " + userCharV[4] + ", " + userCharV[5]
-					 + ", " + userCharV[6] + ", " + userCharV[7] + ", " + userCharV[8]);
+			System.out.println("Seu time é: " + userChar1 + ", " + userChar2 + ", " + userChar3
+					 + ", " + userChar4 + ", " + userChar5 + ", " + userChar6
+					 + ", " + userChar7 + ", " + userChar8 + ", " + userChar9);
 		}
 	}
 //========================================================================================================
 	static String escoOuAle() throws InterruptedException {			//DEFINIR SE QUER ESCOLHER OU ALEATORIO
 		do {
 			if (!firstChoose.equals("aleatorio") && !firstChoose.equals("escolher")) {
-				Thread.sleep(1000);
-				System.out.println("Erro, tente novamente");
-				Thread.sleep(1000);
+				System.out.println();
+				System.err.println("Erro, tente novamente");
+				System.out.println();
 			}
 		System.out.print("Deseja escolher ou modo aleatorio? ");
 		firstChoose = entrada.next();
 		} while (!firstChoose.equals("aleatorio") && !firstChoose.equals("escolher"));
+		System.out.println();
 		return firstChoose;
 	}
 //========================================================================================================
@@ -448,17 +464,19 @@ public class Navigation {
 		System.out.println("Erro, tente novamente");
 		Thread.sleep(1000);
 			}
-			if (escolher.equals(userCharV[0]) || escolher.equals(userCharV[1]) || escolher.equals(userCharV[2]) || 
-					escolher.equals(userCharV[3]) || escolher.equals(userCharV[4]) || escolher.equals(userCharV[5]) || 
-					escolher.equals(userCharV[6]) || escolher.equals(userCharV[7]) || escolher.equals(userCharV[8])) {
+			
+			impriChars();
+			System.out.print("Escolha seu Personagem: ");
+			escolher = entrada.next();
+			
+			if (escolher.equals(userChar1) || escolher.equals(userChar2) || escolher.equals(userChar3) || 
+					escolher.equals(userChar4) || escolher.equals(userChar5) || escolher.equals(userChar6) || 
+					escolher.equals(userChar7) || escolher.equals(userChar8) || escolher.equals(userChar9)) {
 				if (escoModo.equals("classica")) {
 				System.out.println("Voce ja escolheu esse personagem");
 				}
 			}
 			
-			impriChars();
-			System.out.print("Escolha seu Personagem: ");
-			escolher = entrada.next();
 			} while (!escolher.equals(chrs.chars[0]) && !escolher.equals(chrs.chars[1]) && 
 					!escolher.equals(chrs.chars[2]) && !escolher.equals(chrs.chars[3]) && 
 					!escolher.equals(chrs.chars[4]) && !escolher.equals(chrs.chars[5]) && 
@@ -468,10 +486,10 @@ public class Navigation {
 					!escolher.equals(chrs.chars[12]) && !escolher.equals(chrs.chars[13]) && 
 					!escolher.equals(chrs.chars[14]) && !escolher.equals(chrs.chars[0]) && 
 					!escolher.equals(chrs.chars[15]) && !escolher.equals(chrs.chars[16]) &&
-					!escolher.equals(chrs.chars[17]) &&
-					 !escolher.equals(userCharV[0]) && !escolher.equals(userCharV[1]) && !escolher.equals(userCharV[2]) 
-					 && !escolher.equals(userCharV[3]) && !escolher.equals(userCharV[4]) && !escolher.equals(userCharV[5]) 
-					 && !escolher.equals(userCharV[6]) && !escolher.equals(userCharV[7]) && !escolher.equals(userCharV[8]));
+					!escolher.equals(chrs.chars[17]) ||
+					 escolher.equals(userChar1) || escolher.equals(userChar2) || escolher.equals(userChar3) 
+					 || escolher.equals(userChar4) || escolher.equals(userChar5) || escolher.equals(userChar6) 
+					 || escolher.equals(userChar7) || escolher.equals(userChar8) || escolher.equals(userChar9));
 			return escolher;
 	}
 //========================================================================================================
@@ -479,25 +497,29 @@ public class Navigation {
 		Thread.sleep(500);
 		System.out.println("Carregando Batalha...");
 		Thread.sleep(4000);
-		System.out.println("Round " + contaRound);
+		System.out.println(ANSI_YELLOW +
+				"Round " + contaRound
+				+ ANSI_RESET);
 		Thread.sleep(1000);
-		System.out.println("Fight!!!");
+		System.out.println(ANSI_RED +
+				"Fight!!!"
+				+ ANSI_RESET);
 		Thread.sleep(2000);
 		
 		do {
 			if (!atributoEsco.equals("power") && !atributoEsco.equals("magic") && !atributoEsco.equals("life")) {
 				Thread.sleep(1000);
-				System.out.println("Erro, tente novamente");
+				System.err.println("Erro, tente novamente");
 				Thread.sleep(1000);
 			}
 		
-		System.out.println(userChar);
+		System.out.println(ANSI_BLUE + userChar + ANSI_RESET);
 		Thread.sleep(1000);
-		System.out.println("power: " + userChars[0] + "; ");
+		System.out.println(ANSI_RED + "power: " + userChars[0] + "; " + ANSI_RESET);
 		Thread.sleep(500);
-		System.out.println("magic: " + userChars[1] + "; ");
+		System.out.println(ANSI_ROXA + "magic: " + userChars[1] + "; " + ANSI_RESET);
 		Thread.sleep(500);
-		System.out.println("life: " + userChars[2] + ".");
+		System.out.println(ANSI_GREEN + "life: " + userChars[2] + "." + ANSI_RESET);
 		Thread.sleep(500);
 
 		System.out.print("Escolha um atributo de " + userChar + " entre 'Power', 'Magic', 'Life': ");
@@ -529,18 +551,21 @@ public class Navigation {
 			if (userChars[atributoEscoInt] > machineChars[atributoEscoInt]) {
 				System.out.println(userChar + " venceu!!");
 				Thread.sleep(1200);
-				System.out.println("FATALITY!!!!");
+				System.err.println("FATALITY!!!!");
 				win1 =1;
+				winS = 0;
 				contaRound += 1;
 			}
 			if (userChars[atributoEscoInt] < machineChars[atributoEscoInt]){
 				System.out.println(machineChar + " venceu!!");
 				Thread.sleep(1200);
-				System.out.println("FATALITY!!!!");
+				System.err.println("FATALITY!!!!");
 				Thread.sleep(4000);
 				win1 = 0;
-				contaRound += 0;
-				creditos -= 1;
+				winS = 1;
+				if (escoModo.equals("classica")) {
+				contaRound += 1;
+				}
 			}
 		
 		}
@@ -548,73 +573,73 @@ public class Navigation {
 //========================================================================================================
 	static int ranUser1(int userNumber) throws InterruptedException {
 			
-			if (userNumber == userNumberV[0]) {
+			if (userNumber == userNumber1) {
 				Thread.sleep(1200);
 				numAle = n.nextInt(17);
 				userNumber = numAle;
 				
-			} else if (userNumber == userNumberV[1]) {
+			} else if (userNumber == userNumber2) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0]);
+					} while (userNumber == userNumber1);
 				
-			} else if (userNumber == userNumberV[2]) {
+			} else if (userNumber == userNumber3) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2);
 				
-			} else if (userNumber == userNumberV[3]) {
+			} else if (userNumber == userNumber4) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3);
 				
-			} else if (userNumber == userNumberV[4]) {
+			} else if (userNumber == userNumber5) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2] || 
-							userNumber == userNumberV[3]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3 || 
+							userNumber == userNumber4);
 				
-			} else if (userNumber == userNumberV[5]) {
+			} else if (userNumber == userNumber6) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2] || 
-							userNumber == userNumberV[3] || userNumber == userNumberV[4]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3 || 
+							userNumber == userNumber4 || userNumber == userNumber5);
 				
-			} else if (userNumber == userNumberV[6]) {
+			} else if (userNumber == userNumber7) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2] || 
-							userNumber == userNumberV[3] || userNumber == userNumberV[4] || userNumber == userNumberV[5]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3 || 
+							userNumber == userNumber4 || userNumber == userNumber5 || userNumber == userNumber6);
 				
-			} else if (userNumber == userNumberV[7]) {
+			} else if (userNumber == userNumber8) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2] || 
-							userNumber == userNumberV[3] || userNumber == userNumberV[4] || userNumber == userNumberV[5] || 
-							userNumber == userNumberV[6]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3 || 
+							userNumber == userNumber4 || userNumber == userNumber5 || userNumber == userNumber6 || 
+							userNumber == userNumber7);
 				
-			} else if (userNumber == userNumberV[8]) {
+			} else if (userNumber == userNumber9) {
 				do {
 					Thread.sleep(1200);
 					numAle = n.nextInt(17);
 					userNumber = numAle;
-					} while (userNumber == userNumberV[0] || userNumber == userNumberV[1] || userNumber == userNumberV[2] || 
-							userNumber == userNumberV[3] || userNumber == userNumberV[4] || userNumber == userNumberV[5] || 
-							userNumber == userNumberV[6] || userNumber == userNumberV[7]);
+					} while (userNumber == userNumber1 || userNumber == userNumber2 || userNumber == userNumber3 || 
+							userNumber == userNumber4 || userNumber == userNumber5 || userNumber == userNumber6 || 
+							userNumber == userNumber7 || userNumber == userNumber8);
 			
 		}
 		return userNumber;
@@ -661,99 +686,63 @@ public class Navigation {
 		return userNumber;
 	}
 //========================================================================================================
-	static int[][] escUser2(int userNumber, int userChars[][]) throws InterruptedException {
+	static int[] escUser2(int userNumber, int userChars[]) throws InterruptedException {
 	
-		if (userNumber == 0) {
-			userChars[0][0] = chrs.motaro[0];
-			userChars[0][1] = chrs.motaro[1];
-			userChars[0][2] = chrs.motaro[2];
+	if (userNumber == 0) {
+			userChars = chrs.motaro;
 			
-		} else if (userNumber == 1) {
-			userChars[1][0] = chrs.sonya[0];
-			userChars[1][1] = chrs.sonya[1];
-			userChars[1][2] = chrs.sonya[2];
-			
-		}  else if (userNumber == 2) {
-			userChars[2][0] = chrs.nightwolf[0];
-			userChars[2][1] = chrs.nightwolf[1];
-			userChars[2][2] = chrs.nightwolf[2];
-			
-		}  else if (userNumber == 3) {
-			userChars[3][0] = chrs.sindel[0];
-			userChars[3][1] = chrs.sindel[1];
-			userChars[3][2] = chrs.sindel[2];
-			
-		}  else if (userNumber == 4) {
-			userChars[4][0] = chrs.stryker[0];
-			userChars[4][1] = chrs.stryker[1];
-			userChars[4][2] = chrs.stryker[2];
-			
-		}  else if (userNumber == 5) {
-			userChars[5][0] = chrs.sheeva[0];
-			userChars[5][1] = chrs.sheeva[1];
-			userChars[5][2] = chrs.sheeva[2];
-			
-		}  else if (userNumber == 6) {
-			userChars[6][0] = chrs.noob[0];
-			userChars[6][1] = chrs.noob[1];
-			userChars[6][2] = chrs.noob[2];
-			
-		}  else if (userNumber == 7) {
-			userChars[7][0] = chrs.subzero[0];
-			userChars[7][1] = chrs.subzero[1];
-			userChars[7][2] = chrs.subzero[2];
-			
-		}  else if (userNumber == 8) {
-			userChars[8][0] = chrs.shangtsung[0];
-			userChars[8][1] = chrs.shangtsung[1];
-			userChars[8][2] = chrs.shangtsung[2];
-			
-		}  else if (userNumber == 9) {
-			userChars[9][0] = chrs.shaokahn[0];
-			userChars[9][1] = chrs.shaokahn[1];
-			userChars[9][2] = chrs.shaokahn[2];
-			
-		}  else if (userNumber == 10) {
-			userChars[10][0] = chrs.sektor[0];
-			userChars[10][1] = chrs.sektor[1];
-			userChars[10][2] = chrs.sektor[2];
-			
-		}  else if (userNumber == 11) {
-			userChars[11][0] = chrs.cyrax[0];
-			userChars[11][1] = chrs.cyrax[1];
-			userChars[11][2] = chrs.cyrax[2];
-			
-		}  else if (userNumber == 12) {
-			userChars[12][0] = chrs.smoke[0];
-			userChars[12][1] = chrs.smoke[1];
-			userChars[12][2] = chrs.smoke[2];
-			
-		}  else if (userNumber == 13) {
-			userChars[13][0] = chrs.kano[0];
-			userChars[13][1] = chrs.kano[1];
-			userChars[13][2] = chrs.kano[2];
-			
-		}  else if (userNumber == 14) {
-			userChars[14][0] = chrs.liukang[0];
-			userChars[14][1] = chrs.liukang[1];
-			userChars[14][2] = chrs.liukang[2];
-			
-		}  else if (userNumber == 15) {
-			userChars[15][0] = chrs.kunglao[0];
-			userChars[15][1] = chrs.kunglao[1];
-			userChars[15][2] = chrs.kunglao[2];
+	} else if (userNumber == 1) {
+		userChars = chrs.sonya;
 		
-		}  else if (userNumber == 16) {
-			userChars[16][0] = chrs.jax[0];
-			userChars[16][1] = chrs.jax[1];
-			userChars[16][2] = chrs.jax[2];
-			
-		}  else if (userNumber == 17) {
-			userChars[17][0] = chrs.kabal[0];
-			userChars[17][1] = chrs.kabal[1];
-			userChars[17][2] = chrs.kabal[2];
+	} else if (userNumber == 2) {
+		userChars = chrs.nightwolf;
 		
-		}
+	} else if (userNumber == 3) {
+		userChars = chrs.sindel;
+		
+	} else if (userNumber == 4) {
+		userChars = chrs.stryker;
+		
+	} else if (userNumber == 5) {
+		userChars = chrs.sheeva;
+		
+	} else if (userNumber == 6) {
+		userChars = chrs.noob;
+		
+	} else if (userNumber == 7) {
+		userChars = chrs.subzero;
+		
+	} else if (userNumber == 8) {
+		userChars = chrs.shangtsung;
+		
+	} else if (userNumber == 9) {
+		userChars = chrs.shaokahn;
+		
+	} else if (userNumber == 10) {
+		userChars = chrs.sektor;
+		
+	} else if (userNumber == 11) {
+		userChars = chrs.cyrax;
+		
+	} else if (userNumber == 12) {
+		userChars = chrs.smoke;
+		
+	} else if (userNumber == 13) {
+		userChars = chrs.kano;
+		
+	} else if (userNumber == 14) {
+		userChars = chrs.liukang;
+		
+	} else if (userNumber == 15) {
+		userChars = chrs.kunglao;
+		
+	} else if (userNumber == 16) {
+		userChars = chrs.jax;
+		
+	} else if (userNumber == 17) {
+		userChars = chrs.kabal;
+		
+	}
 	return userChars;
 }
 //========================================================================================================
@@ -817,8 +806,5 @@ public class Navigation {
 	return userChar;
 }
 //========================================================================================================
-	static void arcade() throws InterruptedException {
-		
-		
-	}
+
 }
