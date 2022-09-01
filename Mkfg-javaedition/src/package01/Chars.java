@@ -7,6 +7,7 @@ public class Chars {
 	String[] chars = {"motaro", "sonya", "nightwolf", "sindel", "stryker", "sheeva", "noob", "subzero", 
 	"shangtsung", "shaokahn", "sektor", "cyrax", "smoke", "kano", "liukang", "kunglao", "jax", "kabal"};
 	
+	
 	int[] motaro = {atbt.power[0], atbt.magic[0], atbt.life[0]};
 	int[] sonya = {atbt.power[1], atbt.magic[1], atbt.life[1]};
 	int[] nightwolf = {atbt.power[2], atbt.magic[2], atbt.life[2]};

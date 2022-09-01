@@ -37,36 +37,72 @@ public class Navigation {
 	static int creditos = 0;
 	static int verificaCreditos = 0;
 	static int win1 = 0;
+	static int winS = 0;
 	static int quantInimigos = 0;
 	static String escolher = "jax";
 	static String firstChoose = "escolher";
 	static String destEsco = "master";
 	static String escoModo = "arcade";
 	static String atributoEsco = "power";
+	
+
+		
+	    public static final String ANSI_RESET = "\u001B[0m";
+	    public static final String ANSI_YELLOW = "\u001B[33m";
+	    public static final String ANSI_RED = "\u001B[41m";
+	    public static final String ANSI_NEG = "\u001B[1m";
+	    public static final String ANSI_SUB = "\u001B[4m";
+	
 //========================================================================================================
 	static void apresentacao() throws InterruptedException {			//TELA INICIAL DO GAME
-		System.out.println("Mortal Kombat Battle Game");
+		System.out.println("  __  __    ____    _____    _______              _          _  __   ____    __  __   ____               _______ ");
+		System.out.println(" |  \\/  |  / __ \\  |  __ \\  |__   __|     /\\     | |        | |/ /  / __ \\  |  \\/  | |  _ \\      /\\     |__   __|");
+		System.out.println(" | \\  / | | |  | | | |__) |    | |       /  \\    | |        | ' /  | |  | | | \\  / | | |_) |    /  \\       | |   ");
+		System.out.println(" | |\\/| | | |  | | |  _  /     | |      / /\\ \\   | |        |  <   | |  | | | |\\/| | |  _ <    / /\\ \\      | |   ");
+		System.out.println(" | |  | | | |__| | | | \\ \\     | |     / ____ \\  | |____    | . \\  | |__| | | |  | | | |_) |  / ____ \\     | |   ");
+		System.out.println(" |_|  |_|  \\____/  |_|  \\_\\    |_|    /_/    \\_\\ |______|   |_|\\_\\  \\____/  |_|  |_| |____/  /_/    \\_\\    |_|   ");
+		System.out.println("");
 		//Thread.sleep(1500);
-		System.out.println("Java Editon");
+		System.out.println("     _                         ___      _   _   _     _              ");
+		System.out.println("  _ | |  __ _  __ __  __ _    | __|  __| | (_) | |_  (_)  ___   _ _  ");
+		System.out.println(" | || | / _` | \\ V / / _` |   | _|  / _` | | | |  _| | | / _ \\ | ' \\ ");
+		System.out.println("  \\__/  \\__,_|  \\_/  \\__,_|   |___| \\__,_| |_|  \\__| |_| \\___/ |_||_|");
+		System.out.println("");
 		//Thread.sleep(2000);
 		credit();
-		System.out.println("Pressione qualquer botão");
+		System.out.print(ANSI_NEG + "PRESIONE QUALQUER BOTÃO: " + ANSI_RESET);
 		entrada.next();
+		System.out.println();
 		//Thread.sleep(500);
 		System.out.println("Carregando...");
+		Thread.sleep(250);
+		System.out.println("█▒▒▒▒▒▒▒▒▒");
+		System.out.println("10%");
+		Thread.sleep(550);
+		System.out.println("███▒▒▒▒▒▒▒");
+		System.out.println("30%");
+		Thread.sleep(400);
+		System.out.println("█████▒▒▒▒▒");
+		System.out.println("50%");
+		Thread.sleep(500);
+		System.out.println("███████▒▒▒");
+		System.out.println("70%");
+		Thread.sleep(1000);
+		System.out.println("██████████");
+		System.out.println("100%");
+		System.out.println("");
 		//Thread.sleep(3000);
 	}
-//========================================================================================================
 	static int credit() {
 		if (creditos == 0) {
 		do {
-			System.out.println("Insira créditos: ");
+			System.out.print("Insira créditos: ");
 			creditos = entrada.nextInt();
 			
 			if (creditos <= 0) {
-				System.out.println("Insira pelo menos 1 crédito");
+				System.err.println("Insira pelo menos 1 crédito");
 			} else if (creditos > 20) {
-				System.out.println("A quantidade maxima de créditos é 20");
+				System.err.println("A quantidade maxima de créditos é 20");
 			}
 		} while (creditos <= 0 || creditos > 20);
 		}
@@ -79,9 +115,7 @@ public class Navigation {
 		verificaCreditos = creditos;
 		return creditos;
 	}
-//========================================================================================================	
 	static int machine1(int machineNumber) {
-//========================================================================================================
 		if (machineNumber == machineNumber1) {
 		do {
 			numAle2 = n.nextInt(17);
@@ -173,7 +207,6 @@ public class Navigation {
 //===============================================================================================================================
 		
 }
-//========================================================================================================
 	static int[] machine2(int machineNumber, int machineChars[]) {
 		
 		if (machineNumber == 0) {
@@ -233,8 +266,6 @@ public class Navigation {
 		}
 		return machineChars;
 	}
-//========================================================================================================
-//========================================================================================================
 	static String machine3(int machineNumber, String machineChar) {
 		
 		if (machineNumber == 0) {
@@ -295,57 +326,62 @@ public class Navigation {
 		return machineChar;
 		
 	}
-//========================================================================================================
 	static void impriChars() throws InterruptedException {			//IMPRESSAO DO NOME DOS PERSONAGENS
-		Thread.sleep(1000);
-		System.out.println(chrs.chars[0] + " | " + chrs.chars[1] + " | " + chrs.chars[2] + 
-				" | " + chrs.chars[3] + " | " + chrs.chars[4] + " | " + chrs.chars[5]);
-		Thread.sleep(500);
-		System.out.println(chrs.chars[6] + " | " + chrs.chars[7] + " | " + chrs.chars[8] + 
-				" | " + chrs.chars[9] + " | " + chrs.chars[10] + " | " + chrs.chars[11]);
-		Thread.sleep(500);
-		System.out.println(chrs.chars[12] + " | " + chrs.chars[13] + " | " + chrs.chars[14] + 
-				" | " + chrs.chars[15] + " | " + chrs.chars[16] + " | " + chrs.chars[17]);
-		Thread.sleep(2000);
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println("1 - motaro⠀⠀| 2 - sonya⠀⠀ | 3 - nightwolf⠀⠀⠀| 4 - sindel⠀⠀ㅤ | 5 - stryker⠀⠀| 6 - sheeva");
+		System.out.println("7 - noob⠀⠀⠀ | 8 - subzero | 9 - shangtsung ⠀| 10 - shaokahn⠀| 11 - sektor  | 12 - cyrax");
+		System.out.println("13 - smoke⠀⠀| 14 - kano⠀⠀ | 15 - liukang⠀⠀  | 16 - kunglao  | 17 - jaxㅤ⠀ ㅤ| 18 - kabal");
+		System.out.println("----------------------------------------------------------------------------------------");
+		System.out.println();
 	}
-//========================================================================================================
+	static void creditosFim() throws InterruptedException {
+		Thread.sleep(600);
+		System.out.println("Congratulations");
+		Thread.sleep(600);
+		System.out.println("Game Director/Programmer: Julio");
+		Thread.sleep(3000);
+		System.out.println("");
+		Thread.sleep(200);
+		System.out.println("2022");
+		Thread.sleep(1500);
+	}
+	static void creditosFimE() throws InterruptedException {
+		Thread.sleep(600);
+		System.out.println("Game Director/Programmer: Julio");
+		Thread.sleep(3000);
+		System.out.println("");
+		Thread.sleep(200);
+		System.out.println("2022");
+		Thread.sleep(1500);
+	}
 	static void escoModo() {
 		do {
-			if (!escoModo.equals("arcade") && !escoModo.equals("classica") && !escoModo.equals("sobrevivencia")) {
-				System.out.println("Erro, tente novamente");
+			if (!escoModo.equals("arcade") && !escoModo.equals("classico") && !escoModo.equals("sobrevivencia")) {
+				System.out.println();
+				System.err.println("Erro, tente novamente");
+				System.out.println();
 			}
-			System.out.println("Arcade");
-			System.out.println("Classica");
-			System.out.println("Sobrevivencia");
-			System.out.println("Escolha o modo de jogo:");
+			System.out.println("1 - Arcade");
+			System.out.println("2 - Classico");
+			System.out.println("3 - Sobrevivencia");
+			System.out.print("Escolha o modo de jogo: ");
 			escoModo = entrada.next();
-		} while (!escoModo.equals("arcade") && !escoModo.equals("classica") && !escoModo.equals("sobrevivencia"));
+		} while (!escoModo.equals("arcade") && !escoModo.equals("classico") && !escoModo.equals("sobrevivencia"));
+	System.out.println();
 	}
 //========================================================================================================
 	static String escoTorre() {
 		do {
 			if (!destEsco.equals("novato") && !destEsco.equals("guerreiro") && !destEsco.equals("master")) {
-				System.out.println("Erro, tente novamente");
+				System.err.println("Erro, tente novamente");
 			}
-		System.out.println("Novato");
-		System.out.println("Guerreiro");
-		System.out.println("Master");
-		System.out.println("Escolha seu destino");
+		System.out.println("1 - Novato");
+		System.out.println("2 - Guerreiro");
+		System.out.println("3 - Master");
+		System.out.print("Escolha seu destino: ");
 		destEsco = entrada.next();
 		} while (!destEsco.equals("novato") && !destEsco.equals("guerreiro") && !destEsco.equals("master"));
 		return destEsco;
-	}
-//========================================================================================================
-	static void torreNovato(int userNumber11, String userChar11, int userChars11[], 
-			String machineChar11, int machineChars11[],
-			String machineChar22, int machineChars22[], 
-			String machineChar33, int machineChars33[]) throws InterruptedException {
-		
-		if (destEsco.equals("novato")) {
-			mecanicaBatalha(userNumber11, userChar11, userChars11, machineChar11, machineChars11);
-			mecanicaBatalha(userNumber11, userChar11, userChars11, machineChar22, machineChars22);
-			mecanicaBatalha(userNumber11, userChar11, userChars11, machineChar33, machineChars33);
-		}
 	}
 //========================================================================================================
 	static int escoQuant() {										//ESCOLHER QUANTIDADE DE PERSONAGENS NO MODO CLASSICO
@@ -353,17 +389,17 @@ public class Navigation {
 		do {
 		if (quantChar <= 0 || quantChar > 9) {
 			if (quantChar <= 0) {
-				System.out.println("Erro, tente novamente");
-				System.out.println("A quantidade minima de personagens é 1");
+				System.err.println("Erro, tente novamente");
+				System.err.println("A quantidade minima de personagens é 1");
 			} else if (quantChar > 9) {
-				System.out.println("Erro, tente novamente");
-				System.out.println("A quantidade maxima de personagens é 9");
+				System.err.println("Erro, tente novamente");
+				System.err.println("A quantidade maxima de personagens é 9");
 			}	
 		}
 		
-		System.out.println("Batalha Classica");
-		System.out.println("Deseja quantos personagens na batalha?");
+		System.out.print("Deseja quantos personagens na batalha? ");
 		quantChar = entrada.nextInt();
+		System.out.println();
 		} while (quantChar <= 0 || quantChar > 9);
 		return quantChar;
 }
@@ -401,13 +437,16 @@ public class Navigation {
 	static String escoOuAle() throws InterruptedException {			//DEFINIR SE QUER ESCOLHER OU ALEATORIO
 		do {
 			if (!firstChoose.equals("aleatorio") && !firstChoose.equals("escolher")) {
-				Thread.sleep(1000);
-				System.out.println("Erro, tente novamente");
-				Thread.sleep(1000);
+				System.out.println();
+				System.err.println("Erro, tente novamente");
+				System.out.println();
 			}
+		System.out.println("1 - Escolher");
+		System.out.println("2 - Aleatorio");
 		System.out.print("Deseja escolher ou modo aleatorio? ");
 		firstChoose = entrada.next();
 		} while (!firstChoose.equals("aleatorio") && !firstChoose.equals("escolher"));
+		System.out.println();
 		return firstChoose;
 	}
 //========================================================================================================
@@ -423,20 +462,22 @@ public class Navigation {
 					!escolher.equals(chrs.chars[14]) && !escolher.equals(chrs.chars[0]) && 
 					!escolher.equals(chrs.chars[15]) && !escolher.equals(chrs.chars[16]) &&
 					!escolher.equals(chrs.chars[17])) {
-		System.out.println("Erro, tente novamente");
+		System.err.println("Erro, tente novamente");
 		Thread.sleep(1000);
-			}
-			if (escolher.equals(userChar1) || escolher.equals(userChar2) || escolher.equals(userChar3) || 
-					escolher.equals(userChar4) || escolher.equals(userChar5) || escolher.equals(userChar6) || 
-					escolher.equals(userChar7) || escolher.equals(userChar8) || escolher.equals(userChar9)) {
-				if (escoModo.equals("classica")) {
-				System.out.println("Voce ja escolheu esse personagem");
-				}
 			}
 			
 			impriChars();
 			System.out.print("Escolha seu Personagem: ");
 			escolher = entrada.next();
+			
+			if (escolher.equals(userChar1) || escolher.equals(userChar2) || escolher.equals(userChar3) || 
+					escolher.equals(userChar4) || escolher.equals(userChar5) || escolher.equals(userChar6) || 
+					escolher.equals(userChar7) || escolher.equals(userChar8) || escolher.equals(userChar9)) {
+				if (escoModo.equals("classico")) {
+				System.err.println("Voce ja escolheu esse personagem");
+				}
+			}
+			
 			} while (!escolher.equals(chrs.chars[0]) && !escolher.equals(chrs.chars[1]) && 
 					!escolher.equals(chrs.chars[2]) && !escolher.equals(chrs.chars[3]) && 
 					!escolher.equals(chrs.chars[4]) && !escolher.equals(chrs.chars[5]) && 
@@ -446,10 +487,10 @@ public class Navigation {
 					!escolher.equals(chrs.chars[12]) && !escolher.equals(chrs.chars[13]) && 
 					!escolher.equals(chrs.chars[14]) && !escolher.equals(chrs.chars[0]) && 
 					!escolher.equals(chrs.chars[15]) && !escolher.equals(chrs.chars[16]) &&
-					!escolher.equals(chrs.chars[17]) &&
-					 !escolher.equals(userChar1) && !escolher.equals(userChar2) && !escolher.equals(userChar3) 
-					 && !escolher.equals(userChar4) && !escolher.equals(userChar5) && !escolher.equals(userChar6) 
-					 && !escolher.equals(userChar7) && !escolher.equals(userChar8) && !escolher.equals(userChar9));
+					!escolher.equals(chrs.chars[17]) ||
+					 escolher.equals(userChar1) || escolher.equals(userChar2) || escolher.equals(userChar3) 
+					 || escolher.equals(userChar4) || escolher.equals(userChar5) || escolher.equals(userChar6) 
+					 || escolher.equals(userChar7) || escolher.equals(userChar8) || escolher.equals(userChar9));
 			return escolher;
 	}
 //========================================================================================================
@@ -457,34 +498,38 @@ public class Navigation {
 		Thread.sleep(500);
 		System.out.println("Carregando Batalha...");
 		Thread.sleep(4000);
-		System.out.println("Round " + contaRound);
+		System.out.println(ANSI_YELLOW +
+				"ROUND " + contaRound
+				+ ANSI_RESET);
 		Thread.sleep(1000);
-		System.out.println("Fight!!!");
+		System.out.println(ANSI_RED + ANSI_NEG +
+				"FIGHT!!"
+				+ ANSI_RESET);
 		Thread.sleep(2000);
 		
 		do {
 			if (!atributoEsco.equals("power") && !atributoEsco.equals("magic") && !atributoEsco.equals("life")) {
 				Thread.sleep(1000);
-				System.out.println("Erro, tente novamente");
+				System.err.println("Erro, tente novamente");
 				Thread.sleep(1000);
 			}
 		
 		System.out.println(userChar);
 		Thread.sleep(1000);
-		System.out.println("power: " + userChars[0] + "; ");
+		System.out.println("1 - power: " + userChars[0] + "; ");
 		Thread.sleep(500);
-		System.out.println("magic: " + userChars[1] + "; ");
+		System.out.println("2 - magic: " + userChars[1] + "; ");
 		Thread.sleep(500);
-		System.out.println("life: " + userChars[2] + ".");
+		System.out.println("3 - life: " + userChars[2] + ".");
 		Thread.sleep(500);
 
-		System.out.print("Escolha um atributo de " + userChar + " entre 'Power', 'Magic', 'Life': ");
+		System.out.print("Escolha um atributo de " + userChar + ": ");
 		atributoEsco = entrada.next();
 		Thread.sleep(1000);
 		} while (!atributoEsco.equals("power") && !atributoEsco.equals("magic") && !atributoEsco.equals("life"));
 		
 		if (atributoEsco.equals("power") || atributoEsco.equals("magic") || atributoEsco.equals("life")) {
-			System.out.println("Voce escolheu " + atributoEsco);
+			System.out.println("Voce escolheu " + ANSI_SUB + atributoEsco + ANSI_RESET);
 			Thread.sleep(1000);
 		}
 		
@@ -505,20 +550,25 @@ public class Navigation {
 			System.out.println(machineChar + ": " + atributoEsco + " " + machineChars[atributoEscoInt]);
 			Thread.sleep(2000);
 			if (userChars[atributoEscoInt] > machineChars[atributoEscoInt]) {
-				System.out.println(userChar + " venceu!!");
+				System.out.println(userChar + " wins!!");
 				Thread.sleep(1200);
-				System.out.println("FATALITY!!!!");
+				System.out.println(ANSI_RED + "FATALITY!!!!" + ANSI_RESET);
+				System.out.println();
 				win1 =1;
+				winS = 0;
 				contaRound += 1;
 			}
 			if (userChars[atributoEscoInt] < machineChars[atributoEscoInt]){
-				System.out.println(machineChar + " venceu!!");
+				System.out.println(machineChar + " wins!!");
 				Thread.sleep(1200);
-				System.out.println("FATALITY!!!!");
+				System.out.println(ANSI_RED + "FATALITY!!!!" + ANSI_RESET);
+				System.out.println();
 				Thread.sleep(4000);
 				win1 = 0;
-				contaRound += 0;
-				creditos -= 1;
+				winS = 1;
+				if (escoModo.equals("classico")) {
+				contaRound += 1;
+				}
 			}
 		
 		}
@@ -638,7 +688,6 @@ public class Navigation {
 		}
 		return userNumber;
 	}
-//========================================================================================================
 	static int[] escUser2(int userNumber, int userChars[]) throws InterruptedException {
 	
 	if (userNumber == 0) {
@@ -698,7 +747,6 @@ public class Navigation {
 	}
 	return userChars;
 }
-//========================================================================================================
 	static String escUser3(int userNumber, String userChar) throws InterruptedException {
 		
 	if (userNumber == 0) {
@@ -758,9 +806,6 @@ public class Navigation {
 	}
 	return userChar;
 }
-//========================================================================================================
-	static void arcade() throws InterruptedException {
-		
-		
-	}
+
+
 }
