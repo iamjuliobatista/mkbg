@@ -11,24 +11,32 @@ public class TestsBeta {
 		int batalhasPerd = 0;
 		int quantEsco = 0;
 		int charsEsco = 1;
+		int contT = 0;
 		
 		
 	    final String ANSI_RESET = "\u001B[0m";
-	    final String ANSI_YELLOW = "\u001B[33m";
-	    final String ANSI_RED = "\u001B[41m";
-	    final String ANSI_BLUE = "\u001B[44m";
+	    final String ANSI_NEG = "\u001B[1m";
+	    final String ANSI_SUB = "\u001B[4m";
 		
 		
 		
 		Navigation nav1 = new Navigation();
 		
 		do {
+			contadorTorre = 0;
+			batalhasVenc = 0;
+			batalhasPerd = 0;
+			quantEsco = 0;
+			charsEsco = 1;
+			contT = 0;
+			
 		nav1.apresentacao();
 		nav1.escoModo();
 //======================================================================================
 //INITIATION ARCADE MODE
 		//ESCOLHENDO PERSONAGEM
 		if (nav1.escoModo.equals("arcade")) {
+			System.out.println("Voce escolheu modo " + ANSI_SUB + "arcade" + ANSI_RESET);
 			
 			do {
 			System.out.println("CREDITOS RESTANTES: " + nav1.creditos);
@@ -38,14 +46,14 @@ public class TestsBeta {
 				nav1.userChar1 = nav1.escolhendo();
 				nav1.userNumber1 = nav1.escUser1(nav1.userChar1, nav1.userNumber1);
 				nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-				System.out.println("Voce escolheu " + ANSI_BLUE + nav1.userChar1 + ANSI_RESET);
+				System.out.println("Voce escolheu " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
 				System.out.println();
 				
 			} else if (respEAA.equals("aleatorio")) {
 				nav1.userNumber1 = nav1.ranUser1(nav1.userNumber1);
 				nav1.userChar1 = nav1.escUser3(nav1.userNumber1, nav1.userChar1);
 				nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-				System.out.println("Voce escolheu " + ANSI_BLUE + nav1.userChar1 + ANSI_RESET);
+				System.out.println("Voce escolheu " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
 				System.out.println();
 			}
 		//FIM DA ESCOLHA DE PERSONAGEM
@@ -96,8 +104,12 @@ public class TestsBeta {
 		
 		if (torreEscolhida.equals("novato")) {
 			nav1.quantInimigos = 3;
-			System.out.println("Voce escolheu torre novato!");
+			
+			if (contT == 0) {
+			System.out.println("Voce escolheu torre " + ANSI_SUB + "novato" + ANSI_RESET);
 			System.out.println();
+			contT += 1;
+			}
 				if (batalhasVenc == 0) {
 				nav1.mecanicaBatalha(nav1.userNumber1, nav1.userChar1, nav1.userChars1, nav1.machineChar1, nav1.machineChars1);
 				batalhasVenc += nav1.win1;
@@ -120,7 +132,7 @@ public class TestsBeta {
 					}
 					}
 				if (batalhasVenc == 3) {
-						System.out.println("Congratulations");
+						nav1.creditosFim();
 					}
 				
 				
@@ -128,7 +140,13 @@ public class TestsBeta {
 			
 			else if (torreEscolhida.equals("guerreiro")) {
 				nav1.quantInimigos = 6;
-				System.out.println("Voce escolheu torre guerreiro!");
+				
+				if (contT == 0) {
+					System.out.println("Voce escolheu torre " + ANSI_SUB + "guerreiro" + ANSI_RESET);
+					System.out.println();
+					contT += 1;
+					}
+				
 				System.out.println();
 				if (batalhasVenc == 0) {
 					nav1.mecanicaBatalha(nav1.userNumber1, nav1.userChar1, nav1.userChars1, nav1.machineChar1, nav1.machineChars1);
@@ -173,14 +191,20 @@ public class TestsBeta {
 						}
 				}
 				if (batalhasVenc == 6) {
-					System.out.println("Congratulations");
+					nav1.creditosFim();
 						}	
 				
 			}
 			
 			else if (torreEscolhida.equals("master")) {
 				nav1.quantInimigos = 9;
-				System.out.println("Voce escolheu torre master!");
+				
+				if (contT == 0) {
+					System.out.println("Voce escolheu torre " + ANSI_SUB + "master" + ANSI_RESET);
+					System.out.println();
+					contT += 1;
+					}
+				
 				System.out.println();
 				
 				if (batalhasVenc == 0) {
@@ -244,28 +268,32 @@ public class TestsBeta {
 						}
 						}
 				if (batalhasVenc == 9) {
-					System.out.println("Congratulations");
-					
+					nav1.creditosFim();
 						}
 		
 			}
 			} while (batalhasVenc != nav1.quantInimigos && nav1.creditos > 0);
 			if (nav1.creditos == 0) {
 				System.out.println("CREDITOS RESTANTES: " + nav1.creditos);
+				Thread.sleep(600);
 				System.out.println("GAME OVER");
+				Thread.sleep(3000);
 			}
 //===============================================================================================================================
 //===============================================================================================================================
 //===============================================================================================================================
-		} else if (nav1.escoModo.equals("classica")) {
+		} else if (nav1.escoModo.equals("classico")) {
+			System.out.println("Voce escolheu modo " + ANSI_SUB + "classico" + ANSI_RESET);
 			
 			System.out.println("CREDITOS RESTANTES: " + nav1.creditos);
 			quantEsco = nav1.escoQuant();
 			
 			if (quantEsco == 1) {
 			System.out.println("Batalha com " + quantEsco + " personagem escolhida!");
+			System.out.println();
 			} else {
-			System.out.println("Batalha com " + quantEsco + " personagens escolhida!");	
+			System.out.println("Batalha com " + quantEsco + " personagens escolhida!");
+			System.out.println();
 			}
 
 		do {
@@ -276,14 +304,16 @@ public class TestsBeta {
 					nav1.userChar1 = nav1.escolhendo();
 					nav1.userNumber1 = nav1.escUser1(nav1.userChar1, nav1.userNumber1);
 					nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-					System.out.println("Sua primeira escolha é " + nav1.userChar1);
+					System.out.println("Sua primeira escolha é " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber1 = nav1.ranUser1(nav1.userNumber1);
 					nav1.userChar1 = nav1.escUser3(nav1.userNumber1, nav1.userChar1);
 					nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-					System.out.println("Sua primeira escolha é " + nav1.userChar1);
+					System.out.println("Sua primeira escolha é " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 
@@ -292,14 +322,16 @@ public class TestsBeta {
 					nav1.userChar2 = nav1.escolhendo();
 					nav1.userNumber2 = nav1.escUser1(nav1.userChar2, nav1.userNumber2);
 					nav1.userChars2 = nav1.escUser2(nav1.userNumber2, nav1.userChars2);
-					System.out.println("Sua segunda escolha é " + nav1.userChar2);
+					System.out.println("Sua segunda escolha é " + ANSI_SUB + nav1.userChar2 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber2 = nav1.ranUser1(nav1.userNumber2);
 					nav1.userChar2 = nav1.escUser3(nav1.userNumber2, nav1.userChar2);
 					nav1.userChars2 = nav1.escUser2(nav1.userNumber2, nav1.userChars2);
-					System.out.println("Sua segunda escolha é " + nav1.userChar2);
+					System.out.println("Sua segunda escolha é " + ANSI_SUB + nav1.userChar2 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 3) {
@@ -307,14 +339,16 @@ public class TestsBeta {
 					nav1.userChar3 = nav1.escolhendo();
 					nav1.userNumber3 = nav1.escUser1(nav1.userChar3, nav1.userNumber3);
 					nav1.userChars3 = nav1.escUser2(nav1.userNumber3, nav1.userChars3);
-					System.out.println("Sua terceira escolha é " + nav1.userChar3);
+					System.out.println("Sua terceira escolha é " + ANSI_SUB + nav1.userChar3 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber3 = nav1.ranUser1(nav1.userNumber3);
 					nav1.userChar3 = nav1.escUser3(nav1.userNumber3, nav1.userChar3);
 					nav1.userChars3 = nav1.escUser2(nav1.userNumber3, nav1.userChars3);
-					System.out.println("Sua terceira escolha é " + nav1.userChar3);
+					System.out.println("Sua terceira escolha é " + ANSI_SUB + nav1.userChar3 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 4) {
@@ -322,14 +356,16 @@ public class TestsBeta {
 					nav1.userChar4 = nav1.escolhendo();
 					nav1.userNumber4 = nav1.escUser1(nav1.userChar4, nav1.userNumber4);
 					nav1.userChars4 = nav1.escUser2(nav1.userNumber4, nav1.userChars4);
-					System.out.println("Sua quarta escolha é " + nav1.userChar4);
+					System.out.println("Sua quarta escolha é " + ANSI_SUB + nav1.userChar4 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber4 = nav1.ranUser1(nav1.userNumber4);
 					nav1.userChar4 = nav1.escUser3(nav1.userNumber4, nav1.userChar4);
 					nav1.userChars4 = nav1.escUser2(nav1.userNumber4, nav1.userChars4);
-					System.out.println("Sua quarta escolha é " + nav1.userChar4);
+					System.out.println("Sua quarta escolha é " + ANSI_SUB + nav1.userChar4 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 5) {
@@ -337,14 +373,16 @@ public class TestsBeta {
 					nav1.userChar5 = nav1.escolhendo();
 					nav1.userNumber5 = nav1.escUser1(nav1.userChar5, nav1.userNumber5);
 					nav1.userChars5 = nav1.escUser2(nav1.userNumber5, nav1.userChars5);
-					System.out.println("Sua quinta escolha é " + nav1.userChar5);
+					System.out.println("Sua quinta escolha é " + ANSI_SUB + nav1.userChar5 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber5 = nav1.ranUser1(nav1.userNumber5);
 					nav1.userChar5 = nav1.escUser3(nav1.userNumber5, nav1.userChar5);
 					nav1.userChars5 = nav1.escUser2(nav1.userNumber5, nav1.userChars5);
-					System.out.println("Sua quinta escolha é " + nav1.userChar5);
+					System.out.println("Sua quinta escolha é " + ANSI_SUB + nav1.userChar5 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 6) {
@@ -352,14 +390,16 @@ public class TestsBeta {
 					nav1.userChar6 = nav1.escolhendo();
 					nav1.userNumber6 = nav1.escUser1(nav1.userChar6, nav1.userNumber6);
 					nav1.userChars6 = nav1.escUser2(nav1.userNumber6, nav1.userChars6);
-					System.out.println("Sua sexta escolha é " + nav1.userChar6);
+					System.out.println("Sua sexta escolha é " + ANSI_SUB + nav1.userChar6 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber6 = nav1.ranUser1(nav1.userNumber6);
 					nav1.userChar6 = nav1.escUser3(nav1.userNumber6, nav1.userChar6);
 					nav1.userChars6 = nav1.escUser2(nav1.userNumber6, nav1.userChars6);
-					System.out.println("Sua sexta escolha é " + nav1.userChar6);
+					System.out.println("Sua sexta escolha é " + ANSI_SUB + nav1.userChar6 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 7) {
@@ -367,14 +407,16 @@ public class TestsBeta {
 					nav1.userChar7 = nav1.escolhendo();
 					nav1.userNumber7 = nav1.escUser1(nav1.userChar7, nav1.userNumber7);
 					nav1.userChars7 = nav1.escUser2(nav1.userNumber7, nav1.userChars7);
-					System.out.println("Sua setima escolha é " + nav1.userChar7);
+					System.out.println("Sua setima escolha é " + ANSI_SUB + nav1.userChar7 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber7 = nav1.ranUser1(nav1.userNumber7);
 					nav1.userChar7 = nav1.escUser3(nav1.userNumber7, nav1.userChar7);
 					nav1.userChars7 = nav1.escUser2(nav1.userNumber7, nav1.userChars7);
-					System.out.println("Sua setima escolha é " + nav1.userChar7);
+					System.out.println("Sua setima escolha é " + ANSI_SUB + nav1.userChar7 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 8) {
@@ -382,14 +424,16 @@ public class TestsBeta {
 					nav1.userChar8 = nav1.escolhendo();
 					nav1.userNumber8 = nav1.escUser1(nav1.userChar8, nav1.userNumber8);
 					nav1.userChars8 = nav1.escUser2(nav1.userNumber8, nav1.userChars8);
-					System.out.println("Sua oitava escolha é " + nav1.userChar8);
+					System.out.println("Sua oitava escolha é " + ANSI_SUB + nav1.userChar8 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber8 = nav1.ranUser1(nav1.userNumber8);
 					nav1.userChar8 = nav1.escUser3(nav1.userNumber8, nav1.userChar8);
 					nav1.userChars8 = nav1.escUser2(nav1.userNumber8, nav1.userChars8);
-					System.out.println("Sua oitava escolha é " + nav1.userChar8);
+					System.out.println("Sua oitava escolha é " + ANSI_SUB + nav1.userChar8 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			} else if (charsEsco == 9) {
@@ -397,14 +441,16 @@ public class TestsBeta {
 					nav1.userChar9 = nav1.escolhendo();
 					nav1.userNumber9 = nav1.escUser1(nav1.userChar9, nav1.userNumber9);
 					nav1.userChars9 = nav1.escUser2(nav1.userNumber9, nav1.userChars9);
-					System.out.println("Sua nona escolha é " + nav1.userChar9);
+					System.out.println("Sua nona escolha é " + ANSI_SUB + nav1.userChar9 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 
 				} else if (respEAA.equals("aleatorio")) {
 					nav1.userNumber9 = nav1.ranUser1(nav1.userNumber9);
 					nav1.userChar9 = nav1.escUser3(nav1.userNumber9, nav1.userChar9);
 					nav1.userChars9 = nav1.escUser2(nav1.userNumber9, nav1.userChars9);
-					System.out.println("Sua nona escolha é " + nav1.userChar9);
+					System.out.println("Sua nona escolha é " + ANSI_SUB + nav1.userChar9 + ANSI_RESET);
+					System.out.println();
 					charsEsco += 1;
 				}
 			}
@@ -452,6 +498,7 @@ public class TestsBeta {
 			nav1.machineChar9 = nav1.machine3(nav1.machineNumber9, nav1.machineChar9);
 //======================================================================================
 			System.out.println("Sorteando batalhas...");
+			System.out.println();
 			
 			if (quantEsco == 1) {
 				nav1.mecanicaBatalha(nav1.userNumber1, nav1.userChar1, nav1.userChars1, nav1.machineChar1, nav1.machineChars1);
@@ -459,8 +506,12 @@ public class TestsBeta {
 				
 				if (batalhasVenc == 1) {
 					System.out.println("Voce venceu!!");
+					nav1.creditosFim();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -473,10 +524,15 @@ public class TestsBeta {
 				
 				if (batalhasVenc == 2) {
 					System.out.println("Voce Venceu!!");
+					nav1.creditosFim();
 				} else if (batalhasVenc == 1) {
 					System.out.println("Empate!!");
+					nav1.creditosFimE();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -491,8 +547,12 @@ public class TestsBeta {
 				
 				if (batalhasVenc >= 2) {
 					System.out.println("Voce venceu!!");
+					nav1.creditosFim();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -509,10 +569,15 @@ public class TestsBeta {
 				
 				if (batalhasVenc >= 3) {
 					System.out.println("Voce Venceu!!");
+					nav1.creditosFim();
 				} else if (batalhasVenc == 2) {
 					System.out.println("Empate!!");
+					nav1.creditosFimE();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -531,8 +596,12 @@ public class TestsBeta {
 				
 				if (batalhasVenc >= 3) {
 					System.out.println("Voce venceu!!");
+					nav1.creditosFim();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -553,10 +622,15 @@ public class TestsBeta {
 				
 				if (batalhasVenc >= 4) {
 					System.out.println("Voce Venceu!!");
+					nav1.creditosFim();
 				} else if (batalhasVenc == 3) {
 					System.out.println("Empate!!");
+					nav1.creditosFimE();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -579,8 +653,12 @@ public class TestsBeta {
 			
 				if (batalhasVenc >= 4) {
 					System.out.println("Voce venceu!!");
+					nav1.creditosFim();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -605,10 +683,15 @@ public class TestsBeta {
 				
 				if (batalhasVenc >= 5) {
 					System.out.println("Voce Venceu!!");
+					nav1.creditosFim();
 				} else if (batalhasVenc == 4) {
 					System.out.println("Empate!!");
+					nav1.creditosFimE();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -634,8 +717,12 @@ public class TestsBeta {
 				batalhasVenc += nav1.win1;
 				if (batalhasVenc >= 5) {
 					System.out.println("Voce venceu!!");
+					nav1.creditosFim();
 				} else {
 					System.out.println("Oponente venceu!!");
+					Thread.sleep(400);
+					System.out.println("GAME OVER");
+					Thread.sleep(1200);
 					nav1.creditos -= 1;
 				}
 			} 
@@ -643,6 +730,7 @@ public class TestsBeta {
 			
 			
 		} else if (nav1.escoModo.equals("sobrevivencia")) {
+			System.out.println("Voce escolheu modo " + ANSI_SUB + "sobrevivencia" + ANSI_RESET);
 			System.out.println("CREDITOS RESTANTES: " + nav1.creditos);
 			respEAA = nav1.escoOuAle();
 			
@@ -650,13 +738,15 @@ public class TestsBeta {
 				nav1.userChar1 = nav1.escolhendo();
 				nav1.userNumber1 = nav1.escUser1(nav1.userChar1, nav1.userNumber1);
 				nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-				System.out.println("Voce escolheu " + nav1.userChar1);
+				System.out.println("Voce escolheu " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
+				System.out.println();
 				
 			} else if (respEAA.equals("aleatorio")) {
 				nav1.userNumber1 = nav1.ranUser1(nav1.userNumber1);
 				nav1.userChar1 = nav1.escUser3(nav1.userNumber1, nav1.userChar1);
 				nav1.userChars1 = nav1.escUser2(nav1.userNumber1, nav1.userChars1);
-				System.out.println("Voce escolheu " + nav1.userChar1);
+				System.out.println("Voce escolheu " + ANSI_SUB + nav1.userChar1 + ANSI_RESET);
+				System.out.println();
 			}
 			
 			do {
@@ -677,6 +767,7 @@ public class TestsBeta {
 			System.out.println("Voce ganhou " + batalhasVenc + " batalhas");
 			}
 			nav1.creditos -= 1;
+			nav1.creditosFimE();
 			
 		}
 	}  while (2 > 1);
